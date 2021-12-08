@@ -13,6 +13,7 @@ const slider = new Vue(
         el: '#img-slider',
         data: {
             activeIndex: 0,
+            slidesTimer: null,
             slides: [
                 {
                     imgPath: 'img/01.jpg',
@@ -58,8 +59,20 @@ const slider = new Vue(
             },
             showThis: function(index) {
                 this.activeIndex = index;
+            },
+            startTimer: function() {
+                this.slidesTimer = setInterval(() => {
+                    if (this.activeIndex < this.slides.length -1){
+                        this.activeIndex++;
+                    } else {
+                        this.activeIndex = 0;
+                    };
+                }, 5000);
             }
         },
+        created: function(){
+            this.startTimer();
+        }
     }
 );
 
