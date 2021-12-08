@@ -62,12 +62,11 @@ const slider = new Vue(
             },
             startTimer: function() {
                 this.slidesTimer = setInterval(() => {
-                    if (this.activeIndex < this.slides.length -1){
-                        this.activeIndex++;
-                    } else {
-                        this.activeIndex = 0;
-                    };
-                }, 5000);
+                    this.nextSlide();
+                }, 3000);
+            },
+            stopTimer: function() {
+                clearInterval(this.slidesTimer);
             }
         },
         created: function(){
