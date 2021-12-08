@@ -42,7 +42,7 @@
                 </div>
 
                 <!-- Immagini -->
-                <div v-for="slide, index in slides" class="slider-img-container" :class="{ 'active': index === activeIndex }">
+                <div @click="showThis(index)" v-for="slide, index in slides" class="slider-img-container" :class="{ 'active': index === activeIndex }">
                     <img :src="slide.imgPath" :alt="slide.imgTitle">
                 </div>
                 
